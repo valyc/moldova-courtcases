@@ -1,6 +1,7 @@
 from peewee import *
+from dbconfig import * 
 
-database = MySQLDatabase('moldova_courtcases', **{'host': '127.0.0.1', 'password': 'root123', 'port': 3306, 'user': 'root'})
+database = MySQLDatabase(DATABASE_NAME, **{'host': '127.0.0.1', 'password': DATABASE_PASSWORD, 'port': 3306, 'user': DATABASE_USERNAME})
 
 class Courtcase(Model):
     courtName  = CharField()

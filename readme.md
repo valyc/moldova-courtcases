@@ -3,6 +3,11 @@
 * If you get this error - You are linking against OpenSSL 0.9.8, which is no longer 
   * Run the following command `export CRYPTOGRAPHY_ALLOW_OPENSSL_098=1`
 
+## Requirements
+
+* pip install scrapy
+* pip install peewee
+* pip install MySQL-python
 
 
 ## Testing Scrapy in Shell
@@ -28,6 +33,7 @@
 
 ## Running the scrapy
 
+* copy `dbconfig.py.back` to `dbconfig.py` and update database information
 * `scrapy list` should show the spider name
 * `scrapy crawl Cases` will start to crawl, create html file and save to database
 
@@ -41,6 +47,9 @@
 
 * `scrapy runspider run.py -t csv -o all.csv` will write to csv file
 
+## clean up database for fresh scrapping
+
+mysql -uroot -p -e "DROP DATABASE IF EXISTS moldova_courtcases;CREATE DATABASE moldova_courtcases CHARACTER SET utf8 COLLATE utf8_general_ci;"
 
 
 

@@ -46,7 +46,7 @@ class PdfGeneratorPipeline(object):
         directory = "files/" + item['courtName']
         if not os.path.exists(directory):
             os.makedirs(directory)        
-        item['pdfFile'] = os.path.join(directory, item['caseNumber'] + str(int(time.time())) + ".html")
+        item['pdfFile'] = os.path.join(directory, item['caseNumber'].replace("/","-") + str(int(time.time())) + ".html")
         with open(item['pdfFile'],"w") as fout:
             fout.write(base64.decodestring(item['pdfBase64']))
         return item
