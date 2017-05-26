@@ -43,7 +43,7 @@ class PdfGeneratorPipeline(object):
         if item['pdfBase64'] == "" or len(item['pdfBase64']) < 10:
             item['pdfFile'] = ""
             return item
-        directory = "files/" + item['courtName']
+        directory = "files/" + item['courtName'].encode("ascii","ignore")
         if not os.path.exists(directory):
             os.makedirs(directory)        
         item['pdfFile'] = os.path.join(directory, item['caseNumber'].replace("/","-") + str(int(time.time())) + ".html")

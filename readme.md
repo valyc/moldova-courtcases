@@ -9,7 +9,6 @@
 * pip install peewee
 * pip install MySQL-python
 
-
 ## Testing Scrapy in Shell
 
 * Run `scrapy shell https://cac.instante.justice.md/ro/hot`
@@ -33,7 +32,7 @@
 
 ## Running the scrapy
 
-* copy `dbconfig.py.back` to `dbconfig.py` and update database information
+* copy `dbconfig.py.bak` to `dbconfig.py` and update database information
 * `scrapy list` should show the spider name
 * `scrapy crawl Cases` will start to crawl, create html file and save to database
 
@@ -49,7 +48,7 @@
 
 ## clean up database for fresh scrapping
 
-mysql -uroot -p -e "DROP DATABASE IF EXISTS moldova_courtcases;CREATE DATABASE moldova_courtcases CHARACTER SET utf8 COLLATE utf8_general_ci;"
+* `mysql -uroot -p -e "DROP DATABASE IF EXISTS moldova_courtcases;CREATE DATABASE moldova_courtcases CHARACTER SET utf8 COLLATE utf8_general_ci;"`
 
 
 

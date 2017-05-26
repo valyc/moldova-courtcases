@@ -9,12 +9,12 @@ class Courtcase(Model):
     deliveryDate  = CharField()
     createdDate  = CharField()
     publishedDate  = CharField()
-    title  = CharField()
+    title  = TextField()
     caseType  = CharField()
     theme  = CharField()
     pdfFile = CharField()
 
     class Meta:
         database = database
-
+# create table is not created already, if present, True will fail silently
 Courtcase.create_table(True)
