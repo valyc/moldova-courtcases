@@ -9,7 +9,7 @@ class Courtcase(Model):
     deliveryDate  = CharField()
     createdDate  = CharField()
     publishedDate  = CharField()
-    title  = CharField()
+    title  = TextField()
     caseType  = CharField()
     theme  = CharField()
     pdfFile = CharField()
