@@ -16,5 +16,5 @@ class Courtcase(Model):
 
     class Meta:
         database = database
-
+# create table is not created already, if present, True will fail silently
 Courtcase.create_table(True)
