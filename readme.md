@@ -42,10 +42,17 @@ This contains the scripts to scrape the courtcases and make the data available t
 ### Requirements
 
 * `pip install flask`
+* `pip install gunicorn`
 
-### Running API
+### Testing API
 
-* `python api.py` will serve the API in port 8090
+* `python api.py` will serve the API in port 8090.
+
+#### Running API in CentOS-based server
+
+* copy `moldovacourts_api.service.bak` to `moldovacourts_api.service` and update the project directory information
+* create soft-link `ln -s /home/moldova-ocds/pydev/src/moldovacourts/moldovacourts_api.service /etc/systemd/system/moldovacourts_api.service`
+* `systemctl start moldovacourts_api.service` to start the moldova_api gunicorn server
 
 ### Using API
 

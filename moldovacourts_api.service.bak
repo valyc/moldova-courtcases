@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve MoldovaCourts API
+After=network.target
+
+[Service]
+User=root
+Group=nginx
+WorkingDirectory=/home/moldova-ocds/pydev/src/moldovacourts
+Environment="PATH=/home/moldova-ocds/pydev/.env/moldovacourts/bin"
+ExecStart=/home/moldova-ocds/pydev/.env/moldovacourts/bin/gunicorn --workers 2 --bind 0.0.0.0:8090 -m 007 wsgi:application
+
+[Install]
+WantedBy=multi-user.target

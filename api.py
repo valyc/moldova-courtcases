@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from peewee import MySQLDatabase, RawQuery
 from courtcases.moldova_courtcases_db import *
-app = Flask(__name__)
+application = Flask(__name__)
 
 def getCourtcases(q):
     rq = Courtcase.select().where(Courtcase.title.contains(q)).limit(100)
@@ -21,15 +21,15 @@ def getCourtcasesCount(q):
     casecount = Courtcase.select().where(Courtcase.title.contains(q)).count()
     return str(casecount)
 
-@app.route('/courtcases')
+@application.route('/courtcases')
 def courtcases():
     q = request.args.get('q')   
     return jsonify(getCourtcases(q))
 
-@app.route('/courtcasescount')
+@application.route('/courtcasescount')
 def courtcasescount():
     q = request.args.get('q')   
     return getCourtcasesCount(q)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8090)
+    application.run(host='0.0.0.0', port=8090)
