@@ -2,6 +2,10 @@
 
 This contains the scripts to scrape the courtcases and make the data available through API. Scrapping is a very heavy process, takings days to complete the process. Don't do the scrapping regularly and use the API to use the courtcases data. 
 
+The following system diagram shows that the scrapy script pulls the information from court sites and saves to MySQL database and stores files separately. Then there's API which pulls the information from the database and the OCDS portal uses the API to show the court information in the companies pages. 
+
+![system](system.jpg)
+
 ## Scrapping Courtcases
 
 ### Requirements for scrapping
