@@ -3,6 +3,15 @@ from peewee import MySQLDatabase, RawQuery
 from courtcases.moldova_courtcases_db import *
 application = Flask(__name__)
 
+@application.before_request
+def _db_connect():
+    database.connect()
+
+@application.teardown_request
+def _db_close(exc):
+    if not database.is_closed():
+        database.close()
+
 def getCourtcases(q):
     rq = Courtcase.select().where(Courtcase.title.contains(q)).limit(100)
     result = []
